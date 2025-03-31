@@ -256,13 +256,122 @@ WHERE s.nombre_serie = 'Game of Thrones';
 
 
 
-16. Mostrar el nombre de las series de “HBOM” emitidas después del 01/05/2023 que sean de categoría “INFANTIL” 
-17. Mostrar el precio más bajo de todas las plataformas con Tipo de suscripción “ANUAL”. 
-18. Calcular la media de las temporadas de las series de “TERROR”. 
-19. Contar cuántos actores/actrices estadounidenses de más de 50 años hay. 
-20. Calcular la suma del total de series de la plataforma “RAKU” emitidas. 
-21. Mostrar el nombre de las series protagonizadas por “Scarlet Johansson ” de “Prime Video”. 
-22. Mostrar el nombre del actor/actriz con más series 
-23. Mostrar el nombre y nacionalidad de los actores/actrices de más de 40 años y con más de 30 películas. 
-24. Mostrar los datos de la serie que se emitió en primer lugar ( con la fecha más vieja).
-25. Contar cuantas series están protagonizada por el actor “Daniel Craig
+/* 16. Mostrar el nombre de las series de “HBOM” emitidas después del 01/05/2023 que sean de categoría “INFANTIL” */
+
+SELECT s.nombre_serie AS 'Nombre de la Serie'
+FROM cartelera c
+INNER JOIN series s ON c.cod_serie = s.cod_serie
+WHERE c.id_plataforma = 'HBOM'
+AND c.fecha > '2023-05-01';
+
++--------------------+
+| Nombre de la Serie |
++--------------------+
+| Stranger Things    |
++--------------------+
+1 row in set (0.000 sec)
+
+
+
+
+/* 17. Mostrar el precio más bajo de todas las plataformas con Tipo de suscripción “ANUAL”.*/ 
+
+SELECT nombre, MIN(precio) AS 'Precio'
+FROM plataformas
+WHERE tipo_suscripcion = 'anual'
+GROUP BY nombre DESC;
+
++-------------+--------+
+| nombre      | Precio |
++-------------+--------+
+| PRIME VIDEO |    120 |
+| MI VIDEO    |    240 |
++-------------+--------+
+2 rows in set (0.000 sec)
+
+
+
+/* 18. Calcular la media de las temporadas de las series de “TERROR”.*/
+
+SELECT AVG(s.temporadas) AS 'Media Temporadas Terror'
+FROM cartelera c
+INNER JOIN series s ON c.cod_serie = s.cod_serie
+WHERE c.categoria = 'terror';
+
++-------------------------+
+| Media Temporadas Terror |
++-------------------------+
+|                  9.5000 |
++-------------------------+
+1 row in set (0.000 sec)
+
+
+
+/* 19. Contar cuántos actores/actrices estadounidenses de más de 50 años hay.*/
+
+
+
+
+
+
+
+
+
+
+
+/* 20. Calcular la suma del total de series de la plataforma “RAKU” emitidas. */
+
+
+
+
+
+
+
+
+/* 21. Mostrar el nombre de las series protagonizadas por “Scarlet Johansson ” de “Prime Video”.*/ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 22. Mostrar el nombre del actor/actriz con más series */
+
+
+
+
+
+
+
+
+
+/* 23. Mostrar el nombre y nacionalidad de los actores/actrices de más de 40 años y con más de 30 películas. */
+
+
+
+
+
+
+
+
+
+
+
+/* 24. Mostrar los datos de la serie que se emitió en primer lugar ( con la fecha más vieja).*/ 
+
+
+
+
+
+
+
+
+/* 25. Contar cuantas series están protagonizada por el actor “Daniel Craig" */
