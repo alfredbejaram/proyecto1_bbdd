@@ -1,2 +1,4 @@
 # proyecto1_bbdd
-"Proyecto1_bbdd" is about to set up a relational SQL database throughout code and solve 25 queries whereas Data Definition Language DDL and Data Query Language DQL were worked too.
+"Proyecto1_bbdd" consiste en desarrollar una base de datos relacional de +3 tablas mediante código SQL donde también se solventaron +20 consultas implementando Data Definition Language DDL y Data Query Language DQL.
+
++ [Acceso a la documentación del proyecto] (desafio_sql_03_25.pdf)
