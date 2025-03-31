@@ -221,10 +221,41 @@ LIMIT 3;   /* Limito el resultado para ser más preciso */
 
 /* 14. Mostrar todos los datos de todas las tablas de las series protagonizadas por “Penelope Cruz” */
 
+SELECT * 
+FROM series s
+INNER JOIN cartelera c ON s.cod_serie = c.cod_serie
+INNER JOIN actores a ON s.actriz_prota = a.actor_prota /* Doble INNER JOIN porque pide todos los valores de todas las tablas */
+WHERE a.nombre_act = 'Penelope Cruz';
+
+
++-----------+-----------------+---------------------+-------------+--------------+-------------------------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+---------------+-----------+-----------+-------------+---------------+--------------+------+---------------+
+| cod_serie | nombre_serie    | director            | actor_prota | actriz_prota | argumento                                                                                                               | duracion | temporadas | id_emision | fecha      | id_plataforma | cod_serie | categoria | actor_prota | nombre_act    | nacionalidad | edad | num_peliculas |
++-----------+-----------------+---------------------+-------------+--------------+-------------------------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+---------------+-----------+-----------+-------------+---------------+--------------+------+---------------+
+|         4 | Stranger Things | The Duffer Brothers | LEDI        | PECR         | En los a├▒os 80, un grupo de ni├▒os en Hawkins, Indiana, se enfrenta a fen├│menos paranormales y criaturas aterradoras.    |      110 |          4 |          3 | 2024-06-01 | HBOM          |         4 | infantil  | PECR        | Penelope Cruz | Espana       |   47 |            40 |
+|         3 | Friends         | David Crane         | DACR        | PECR         | La vida y las relaciones de seis amigos que viven en Nueva York. Amor, amistad y situaciones c├│micas.                   |       60 |         10 |          6 | 2023-01-01 | MIVI          |         3 | terror    | PECR        | Penelope Cruz | Espana       |   47 |            40 |
+|         6 | Black Mirror    | Charlie Brooker     | DABR        | PECR         | Episodios independientes que exploran los aspectos oscuros y perturbadores de la tecnolog├¡a y la sociedad moderna.      |       90 |          5 |          7 | 2023-06-01 | DISN          |         6 | comedia   | PECR        | Penelope Cruz | Espana       |   47 |            40 |
++-----------+-----------------+---------------------+-------------+--------------+-------------------------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+---------------+-----------+-----------+-------------+---------------+--------------+-----
 
 
 
-15. Mostrar los datos de los actores que salieron en “Game of Thrones” 
+
+/* 15. Mostrar los datos de los actores que salieron en “Game of Thrones” */
+
+SELECT a.nombre_act AS 'Actores en Game of Thrones'
+FROM actores a
+INNER JOIN series s ON a.actor_prota = s.actor_prota OR a.actor_prota = s.actriz_prota
+WHERE s.nombre_serie = 'Game of Thrones';
+
++----------------------------+
+| Actores en Game of Thrones |
++----------------------------+
+| Emma Stone                 |
+| Javier Bardem              |
++----------------------------+
+2 rows in set (0.000 sec)
+
+
+
 16. Mostrar el nombre de las series de “HBOM” emitidas después del 01/05/2023 que sean de categoría “INFANTIL” 
 17. Mostrar el precio más bajo de todas las plataformas con Tipo de suscripción “ANUAL”. 
 18. Calcular la media de las temporadas de las series de “TERROR”. 
