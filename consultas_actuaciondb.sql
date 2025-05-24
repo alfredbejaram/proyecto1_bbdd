@@ -309,36 +309,48 @@ WHERE c.categoria = 'terror';
 
 /* 19. Contar cuántos actores/actrices estadounidenses de más de 50 años hay.*/
 
+SELECT COUNT(nombre_act) AS 'Numero de actores EEUU'
+FROM actores
+WHERE nacionalidad = 'Estados Unidos';
 
-
-
-
-
-
-
++------------------------+
+| Numero de actores EEUU |
++------------------------+
+|                      6 |
++------------------------+
+1 row in set (0.000 sec)
 
 
 
 /* 20. Calcular la suma del total de series de la plataforma “RAKU” emitidas. */
 
+SELECT COUNT(s.nombre_serie) AS 'Total de series RAKU'
+FROM series s
+INNER JOIN cartelera c ON s.cod_serie = c.cod_serie
+WHERE id_plataforma = 'RAKU';
+
++----------------------+
+| Total de series RAKU |
++----------------------+
+|                    2 |
++----------------------+
+1 row in set (0.000 sec)
 
 
 
+/* 21. Mostrar el nombre de las series protagonizadas por Scarlet Johansson de Prime Video.*/ 
 
+SELECT nombre_serie, actriz_prota
+FROM series 
+WHERE actriz_prota = 'SCJO';
 
-
-
-/* 21. Mostrar el nombre de las series protagonizadas por “Scarlet Johansson ” de “Prime Video”.*/ 
-
-
-
-
-
-
-
-
-
-
++--------------+--------------+
+| nombre_serie | actriz_prota |
++--------------+--------------+
+| The Crown    | SCJO         |
+| Sherlock     | SCJO         |
++--------------+--------------+
+2 rows in set (0.000 sec)
 
 
 
